@@ -6,7 +6,24 @@ class LoginForm extends Component {
     return (
       <Card>
         <CardSection>
+          <Input
+            label="Email"
+            placeholder="user@gmail.com"
+          />
+        </CardSection>
+
+        <CardSection>
+          <Input
+            secureTextEntry
+            label="Password"
+            placeholder="user@gmail.com"
+          />
+        </CardSection>
         
+        <CardSection>
+          <Button>
+            Login
+          </Button>
         </CardSection>
       </Card>
     );
