@@ -6,6 +6,7 @@ import firebase from 'firebase';
 
 // import combinedReducers
 import reducers from './reducers';
+import LoginForm from './components/LoginForm';
 // import firebase config variables
 import { REACT_NATIVE_Config } from '../config.env';
 
@@ -19,11 +20,7 @@ class App extends Component {
   render () {
     return (
       <Provider store={createStore(reducers)}>
-        <View>
-          <Text>
-            Hello World!
-          </Text>
-        </View>
+        <LoginForm />
       </Provider>
     );
   }
