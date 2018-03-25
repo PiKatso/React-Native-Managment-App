@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Card, CardSection, Input, Button } from './common';
 import { connect } from 'react-redux';
 
-import { emailChanged } from '../actions';
+import { emailChanged, passwordChanged } from '../actions';
 
 
 
@@ -10,6 +10,10 @@ class LoginForm extends Component {
   onEmailChange(text) {
     // call action creator
     this.props.emailChanged(text);
+  }
+
+  onPasswordChange(text) {
+    this.props.passwordChanged(text);
   }
 
   render() {
@@ -29,6 +33,7 @@ class LoginForm extends Component {
             secureTextEntry
             label="Password"
             placeholder="user@gmail.com"
+            onChangeText={this.onPasswordChange.bind(this)}
           />
         </CardSection>
 
