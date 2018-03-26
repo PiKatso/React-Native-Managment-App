@@ -3,6 +3,7 @@ import {
   PASSWORD_CHANGED
 } from '../actions/types';
 
+// sets initial state
 const INITIAL_STATE = {
   email: '',
   password: ''
