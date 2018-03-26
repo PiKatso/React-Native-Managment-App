@@ -12,7 +12,7 @@ export const emailChanged = (text) => {
 
 export const passwordChanged = (text) => {
   return {
-    type: PASSWORD_CHANGED.
+    type: PASSWORD_CHANGED,
     payload: text
   };
 };
