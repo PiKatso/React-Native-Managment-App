@@ -10,6 +10,8 @@ const INITIAL_STATE = {
  };
 
 export default (state = INITIAL_STATE, action) => {
+  console.log(action);
+  
   switch (action.type) {
     case EMAIL_CHANGED:
       // creates new object with vaules of state, defines email prop and overwrites to object
