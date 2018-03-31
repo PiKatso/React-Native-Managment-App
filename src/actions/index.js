@@ -26,7 +26,10 @@ export const loginUser = ({ email, password }) => {
     firebase.auth().signInWithEmailAndPassword(email, password)
     .then(user => loginUserSuccess(dispatch, user))
     // handles creating new user/no user with email/password catch
-    .catch(() => {
+    .catch((error) => {
+      // by feeding and calling error, can help solve any firebase read errors thrown
+      console.log(error);
+      
       firebase.auth().createUserWithEmailAndPassword(email, password)
         .then(user => loginUserSuccess(dispatch, user))
         .catch(() => loginUserFail(dispatch));
