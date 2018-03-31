@@ -8,6 +8,7 @@ import ReduxThunk from 'redux-thunk';
 // import combinedReducers
 import reducers from './reducers';
 import LoginForm from './components/LoginForm';
+import Router from './Router';
 // import firebase config variables
 import { REACT_NATIVE_Config } from '../config.env';
 
@@ -23,7 +24,7 @@ class App extends Component {
     
     return (
       <Provider store={store}>
-        <LoginForm />
+        <Router />
       </Provider>
     );
   }
