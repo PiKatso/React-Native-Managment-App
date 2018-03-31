@@ -22,7 +22,7 @@ export const passwordChanged = (text) => {
 };
 
 export const loginUser = ({ email, password }) => {
-  return (dispatch) =>
+  return (dispatch) => {
     // dispatches action type login_user
     dispatch({ type: LOGIN_USER });
 
