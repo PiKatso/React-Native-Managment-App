@@ -6,8 +6,8 @@ import LoginForm from './components/LoginForm';
 const RouterComponent = () => {
   return (
     <Router>
-      <Scene key="root"> 
-
+      <Scene key="root">
+        <Scene key="login" component={LoginForm} title="Login" />
       </Scene>
     </Router>
   );
