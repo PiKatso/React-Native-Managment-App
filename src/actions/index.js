@@ -1,6 +1,7 @@
 import firebase from 'firebase';
 import {
   EMAIL_CHANGED,
+  LOGIN_USER,
   LOGIN_USER_SUCCESS,
   LOGIN_USER_FAIL,
   PASSWORD_CHANGED
@@ -21,15 +22,18 @@ export const passwordChanged = (text) => {
 };
 
 export const loginUser = ({ email, password }) => {
-  return (dispatch) => {
-    // handles user sign in
+  return (dispatch) =>
+    // dispatches action type login_user
+    dispatch({ type: LOGIN_USER });
+
+    // handles user sign in (success)
     firebase.auth().signInWithEmailAndPassword(email, password)
     .then(user => loginUserSuccess(dispatch, user))
-    // handles creating new user/no user with email/password catch
+    // handles sign in fail with user creation
     .catch((error) => {
-      // by feeding and calling error, can help solve any firebase read errors thrown
+      //catches firebase error for debugging
       console.log(error);
-      
+      // creates new user
       firebase.auth().createUserWithEmailAndPassword(email, password)
         .then(user => loginUserSuccess(dispatch, user))
         .catch(() => loginUserFail(dispatch));
