@@ -13,7 +13,14 @@ const RouterComponent = () => {
         </Scene>
 
         <Scene key="main">
-          <Scene key="employeeList" component={EmployeeList} title="Employees" hideBackImage={true} />
+          <Scene
+          key="employeeList"
+          component={EmployeeList}
+          title="Employees"
+          hideBackImage={true}
+          rightTitle="Add"
+          onRight={() => { console.log("Right")}}
+          />
         </Scene>
       </Scene>
     </Router>
