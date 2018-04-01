@@ -54,5 +54,5 @@ const loginUserSuccess = (dispatch, user) => {
     payload: user
   });
   // this calls router action key: employeeList
-  Actions.employeeList();
+  Actions.main();
 };

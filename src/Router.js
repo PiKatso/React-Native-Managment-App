@@ -6,20 +6,23 @@ import EmployeeList from './components/EmployeeList';
 
 const RouterComponent = () => {
   return (
-    <Router>
+    <Router sceneStyle={{paddingTop: 64}}>
       <Scene key="root">
-          <Scene key="login" component={LoginForm} title="Login" initial style={styles.sceneStyle} />
+        <Scene key="auth">
+          <Scene initial key="login" component={LoginForm} title="Login" />
+        </Scene>
 
-          <Scene key="employeeList" component={EmployeeList} title="Employees" hideBackImage={true} style={styles.sceneStyle} />
+        <Scene key="main">
+          <Scene key="employeeList" component={EmployeeList} title="Employees" hideBackImage={true} />
+        </Scene>
       </Scene>
     </Router>
   );
 };
 
-// style={styles.sceneStyle}
 const styles = {
   sceneStyle: {
-    paddingTop: 64
+    paddingBottom: 64
   }
 }
 
