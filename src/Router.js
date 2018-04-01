@@ -20,10 +20,4 @@ const RouterComponent = () => {
   );
 };
 
-const styles = {
-  sceneStyle: {
-    paddingBottom: 64
-  }
-}
-
 export default RouterComponent;
