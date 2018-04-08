@@ -1,4 +1,5 @@
 import firebase from 'firebase';
+import { Actions } from 'react-native-router-flux';
 import {
   EMPLOYEE_UPDATE
 } from './types';
@@ -17,7 +18,7 @@ export const employeeCreate = ({ name, phone, shift }) => {
   return () => { //wraps function in redux to satisfy action creator rules
     // get access to firebase DB and reference path to the json data structure
     firebase.database().ref(`/users/${currentUser.uid}/employees`)
-    .push({ name, phone, shift });
-  }
-
+    .push({ name, phone, shift })
+      .then(() => Actions.employeeList());
+  };
 };
