@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { ListView } from 'react-native';
 import { connect } from 'react-redux';
 
-import { ListItem } from './ListItem'
+import ListItem from './ListItem';
 import { employeesFetch } from '../actions';
 
 class EmployeeList extends Component {
@@ -29,7 +29,7 @@ class EmployeeList extends Component {
     this.dataSource = ds.cloneWithRows(employees);
   }
 
-  renderRow() {
+  renderRow(employee) {
     return <ListItem employee={employee} />;
   }
 
@@ -37,7 +37,7 @@ class EmployeeList extends Component {
     return (
       <ListView
         enableEmptySections
-        dataSource={this.DataSource}
+        dataSource={this.dataSource}
         renderRow={this.renderRow}
       />
     );
