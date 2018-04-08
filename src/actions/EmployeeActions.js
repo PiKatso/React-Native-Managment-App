@@ -1,7 +1,8 @@
 import firebase from 'firebase';
 import { Actions } from 'react-native-router-flux';
 import {
-  EMPLOYEE_UPDATE
+  EMPLOYEE_UPDATE,
+  EMPLOYEE_CREATE
 } from './types';
 
 export const employeeUpdate = ({ prop, value }) => {
@@ -15,11 +16,14 @@ export const employeeCreate = ({ name, phone, shift }) => {
   // get current auth user
   const { currentUser } = firebase.auth();
 
-  return () => { //wraps function in redux to satisfy action creator rules
+  return (dispatch) => { //wraps function in redux to satisfy action creator rules
     // get access to firebase DB and reference path to the json data structure
     firebase.database().ref(`/users/${currentUser.uid}/employees`)
     .push({ name, phone, shift })
-    // type:reset resets employee view stack in our routing
-      .then(() => Actions.employeeList({ type: 'reset' }));
+      .then(() => {
+        dispatch({ type: EMPLOYEE_CREATE });
+        // type:reset resets employee view stack in our routing
+        Actions.employeeList({ type: 'reset' });
+      });
   };
 };
