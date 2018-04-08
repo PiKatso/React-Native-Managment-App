@@ -9,11 +9,22 @@ class EmployeeList extends Component {
     // tells action creator to fetch list of employees || async request
     this.props.employeesFetch();
 
+    this.createDataSource(this.props);
+  }
+
+  // lifecycle method called whenever recieves new set of props
+  componentWillReceiveProps(nextProps) {
+    // nextProps are the next set of props this component will be rendered with
+    // this.props is still available as the old set of props
+    this.createDataSource(nextProps);
+  }
+
+  createDataSource({ employees }) {
     const ds = new ListView.DataSource({
       rowHasChanged: (r1, r2) => r1 !== r2
     });
 
-    this.dataSource = ds.cloneWithRows(this.props.employees);
+    this.dataSource = ds.cloneWithRows(employees);
   }
 
   render() {
