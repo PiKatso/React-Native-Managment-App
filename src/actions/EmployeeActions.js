@@ -27,3 +27,16 @@ export const employeeCreate = ({ name, phone, shift }) => {
       });
   };
 };
+
+export const employeesFetch = () => {
+  const { currentUser } = firebase.auth();
+
+  return (dispatch) => {
+    firebase.database().ref(`/users/${currentUser.uid}/employees`)
+    // anytime we get value from this ref get a snapshot
+    .on('value', snapshot => {
+      // snapshot is not data/more like metadata, .val() gives us access to the data
+      dispatch({ type: EMPLOYEES_FETCH_SUCCESS, payload: snapshot.val() });
+    });
+  };
+};

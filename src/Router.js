@@ -7,7 +7,7 @@ import EmployeeCreate from './components/EmployeeCreate';
 
 const RouterComponent = () => {
   return (
-    <Router sceneStyle={{paddingTop: 65}}>
+    <Router sceneStyle={{ paddingTop: 65 }}>
       <Scene key="root">
         <Scene key="auth">
           <Scene initial key="login" component={LoginForm} title="Login" />
