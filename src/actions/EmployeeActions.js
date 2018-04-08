@@ -19,6 +19,7 @@ export const employeeCreate = ({ name, phone, shift }) => {
     // get access to firebase DB and reference path to the json data structure
     firebase.database().ref(`/users/${currentUser.uid}/employees`)
     .push({ name, phone, shift })
-      .then(() => Actions.employeeList());
+    // type:reset resets employee view stack in our routing
+      .then(() => Actions.employeeList({ type: 'reset' }));
   };
 };
