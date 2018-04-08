@@ -14,7 +14,10 @@ export const employeeCreate = ({ name, phone, shift }) => {
   // get current auth user
   const { currentUser } = firebase.auth();
 
-  // get access to firebase DB and reference path to the json data structure
-  firebase.database().ref(`/users/${currentUser.uid}/employees`)
+  return () => { //wraps function in redux to satisfy action creator rules
+    // get access to firebase DB and reference path to the json data structure
+    firebase.database().ref(`/users/${currentUser.uid}/employees`)
     .push({ name, phone, shift });
+  }
+
 };
