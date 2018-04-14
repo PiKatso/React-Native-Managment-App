@@ -10,8 +10,14 @@ class EmployeeUpdate extends Component {
   componentWillMount() {
     // takes employee model coming in and prop iterates over it, updateing the reducer withthe props
     _.each(this.props.employee, (value, prop) => {
-      this.props.employeUpdate({ prop, value });
+      this.props.employeeUpdate({ prop, value });
     });
+  }
+
+  onButtonPress() {
+    const { name, phone, shift } = this.props;
+
+    console.log(name, phone, shift);
   }
 
   render() {
@@ -20,7 +26,7 @@ class EmployeeUpdate extends Component {
         <EmployeeForm />
 
         <CardSection>
-          <Button>
+          <Button onPress={this.onButtonPress.bind(this)}>
             Update
           </Button>
         </CardSection>
@@ -29,4 +35,10 @@ class EmployeeUpdate extends Component {
   }
 }
 
-export default connect(null, { employeeUpdate })(EmployeeUpdate);
+const mapStateToProps = (state) => {
+  const { name, phone, shift } = state.employeeForm;
+
+  return { name, phone, shift };
+};
+
+export default connect(mapStateToProps, { employeeUpdate })(EmployeeUpdate);
