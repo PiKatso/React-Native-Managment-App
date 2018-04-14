@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+import { EmployeeForm } from './EmployeeForm';
 import { Card, CardSection, Button } from './common';
 import { employeeUpdate, employeeCreate } from '../actions';
 
@@ -14,7 +15,7 @@ class EmployeeCreate extends Component {
   render() {
     return (
       <Card>
-
+        <EmployeeForm />
 
         <CardSection>
           <Button onPress={this.onButtonPress.bind(this)}>
