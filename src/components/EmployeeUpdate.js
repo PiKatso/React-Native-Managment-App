@@ -39,7 +39,9 @@ class EmployeeUpdate extends Component {
         </CardSection>
         
         <CardSection>
-          <Button onPress={this.onTextPress.bind(this)}
+          <Button onPress={this.onTextPress.bind(this)}>
+            Send Schedule
+          </Button>
         </CardSection>
       </Card>
     );
