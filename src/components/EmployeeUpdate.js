@@ -7,7 +7,9 @@ import { employeeUpdate, employeeSave } from '../actions';
 import EmployeeForm from './EmployeeForm';
 import { Card, CardSection, Button, Confirm } from './common';
 
-class EmployeeUpdate extends Component {
+class EmployeeUpdate extends Component { 
+  state = { showModal: false };
+  
   componentWillMount() {
     // takes employee model coming in and prop iterates over it, updateing the reducer withthe props
     _.each(this.props.employee, (value, prop) => {
@@ -45,13 +47,13 @@ class EmployeeUpdate extends Component {
         </CardSection>
         
         <CardSection>
-          <Button onPress={}>
+          <Button onPress={() => this.setState({ showModal: !this.state.showModal })}>
             Remove Employee
           </Button>
         </CardSection>
         
         <Confirm
-          visible={}
+          visible={this.state.showModal}
         >
           Are you sure you want to remove this employee?
         </Confirm>

@@ -41,9 +41,9 @@ const styles = {
   },
   containerStyle: {
     flex: 1,
-    position: 'realtive',
+    position: 'relative',
     justifyContent: 'center',
-    backgroundColor: 'rgba(0, 0, 0, o.75)'
+    backgroundColor: 'rgba(0, 0, 0, 0.75)'
   }
 };
 
