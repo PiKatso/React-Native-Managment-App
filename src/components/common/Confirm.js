@@ -5,6 +5,8 @@ import { CardSection } from './CardSection';
 import { Button } from './Button';
 
 const Confirm = ({ children, visible, onAccept, onDecline }) => {
+  const { containerStyle, textStyle, cardSectionStyle } = styles;
+
   return (
     <Modal
       visible={visible}
@@ -13,9 +15,9 @@ const Confirm = ({ children, visible, onAccept, onDecline }) => {
       // Android requires onRequestClose, passing empty function to satisfy request
       onRequestClose={() => {}}
     >
-      <View>
-        <CardSection>
-          <Text>{children}</Text>
+      <View style={containerStyle}>
+        <CardSection style={cardSectionStyle}>
+          <Text style={textStyle}>{children}</Text>
         </CardSection>
 
         <CardSection>
@@ -25,6 +27,24 @@ const Confirm = ({ children, visible, onAccept, onDecline }) => {
       </View>
     </Modal>
   );
+};
+
+const styles = {
+  cardSectionStyle: {
+    justifyContent: 'center'
+  },
+  textStyle: {
+    flex: 1,
+    textAlign: 'center',
+    fontSize: 18,
+    lineHeight: 40
+  },
+  containerStyle: {
+    flex: 1,
+    position: 'realtive',
+    justifyContent: 'center',
+    backgroundColor: 'rgba(0, 0, 0, o.75)'
+  }
 };
 
 export { Confirm };
