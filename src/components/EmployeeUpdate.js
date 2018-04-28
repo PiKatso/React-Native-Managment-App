@@ -28,6 +28,14 @@ class EmployeeUpdate extends Component {
     
     Communications.text(phone, `your next shift is on ${shift}`);
   }
+  
+  onAccept() {
+    
+  }
+  
+  onDecline() {
+    this.setState({ showModal: false });
+  }
 
   render() {
     return (
@@ -54,6 +62,8 @@ class EmployeeUpdate extends Component {
         
         <Confirm
           visible={this.state.showModal}
+          onAccept={this.onAccept.bind(this)}
+          onDecline={this.onDecline.bind(this)}
         >
           Are you sure you want to remove this employee?
         </Confirm>
