@@ -63,7 +63,7 @@ export const employeeDelete = ({ uid }) => {
     firebase.database().ref(`/users/${currentUser.uid}/employees/${uid}`)
     .remove()
     .then(() => {
-      // don't need to do a dispatch because employeeupdate handles that with employeesFetch above
+      // no need for dispatch, employeeupdate handles it in employeesFetch above
       Actions.employeeList({ type: 'reset' });
     });
   };
